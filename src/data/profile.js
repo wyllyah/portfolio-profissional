@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Gustavo Wyllyah',
   role: 'Desenvolvedor Frontend',
-  email: 'gustavowyllyah@gmail.com',
+  email: 'gustavowyllyah@hotmail.com',
   github: 'https://github.com/wyllyah',
   linkedin: 'https://www.linkedin.com/in/wyllyah/',
   whatsapp:
