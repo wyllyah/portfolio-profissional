@@ -1,24 +1,22 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   BriefcaseBusiness,
   GitBranch,
   Mail,
   MessageCircleMore,
 } from 'lucide-react'
+import { profile } from '../data/profile'
 import SectionTitle from './SectionTitle'
 
 const contactLinks = [
-  { label: 'GitHub', href: 'https://github.com/wyllyah', icon: GitBranch },
+  { label: 'GitHub', href: profile.github, icon: GitBranch },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/wyllyah/',
+    href: profile.linkedin,
     icon: BriefcaseBusiness,
   },
-  { label: 'E-mail', href: 'mailto:gustavowyllyah@gmail.com', icon: Mail },
+  { label: 'E-mail', href: `mailto:${profile.email}`, icon: Mail },
 ]
-
-const whatsappUrl =
-  'https://wa.me/5561999793437?text=Ol%C3%A1%2C%20Gustavo!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar.'
 
 function Contact() {
   return (
@@ -31,7 +29,7 @@ function Contact() {
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <motion.div
+          <m.div
             className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,6 +48,7 @@ function Contact() {
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
                     className="flex items-center gap-3 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 text-slate-300 transition hover:border-cyan-400/50 hover:text-cyan-300"
+                    aria-label={`Acessar ${link.label} de Gustavo Wyllyah`}
                   >
                     <Icon size={20} aria-hidden="true" />
                     <span>{link.label}</span>
@@ -57,9 +56,9 @@ function Contact() {
                 )
               })}
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +73,7 @@ function Contact() {
                 <h3 className="text-2xl font-bold text-white">
                   Fale comigo pelo WhatsApp
                 </h3>
-                <p className="mt-3 max-w-2xl leading-7 text-slate-400">
+                <p className="mt-3 max-w-2xl leading-7 text-slate-300">
                   Clique no botão abaixo para abrir uma conversa direta comigo.
                   A mensagem inicial já estará preenchida para facilitar o
                   contato.
@@ -82,16 +81,17 @@ function Contact() {
               </div>
 
               <a
-                href={whatsappUrl}
+                href={profile.whatsapp}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-emerald-400 sm:w-auto sm:self-start"
+                aria-label="Enviar mensagem para Gustavo Wyllyah pelo WhatsApp"
               >
                 <MessageCircleMore size={18} aria-hidden="true" />
                 Enviar mensagem no WhatsApp
               </a>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

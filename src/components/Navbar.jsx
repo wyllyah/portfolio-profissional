@@ -18,7 +18,10 @@ function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl">
-      <nav className="section-shell flex h-16 items-center justify-between">
+      <nav
+        className="section-shell flex h-16 items-center justify-between"
+        aria-label="Navegação principal"
+      >
         <a
           href="#inicio"
           className="flex items-center gap-3 font-semibold text-white"
@@ -49,13 +52,17 @@ function Navbar() {
           onClick={() => setIsOpen((current) => !current)}
           aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isOpen}
+          aria-controls="menu-mobile"
         >
           {isOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-slate-800 bg-slate-950 px-4 pb-4 md:hidden">
+        <div
+          id="menu-mobile"
+          className="border-t border-slate-800 bg-slate-950 px-4 pb-4 md:hidden"
+        >
           <div className="mx-auto flex max-w-5xl flex-col gap-1 pt-3">
             {navLinks.map((link) => (
               <a

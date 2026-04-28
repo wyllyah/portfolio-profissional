@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Code2, DatabaseZap, Layers3, MonitorSmartphone } from 'lucide-react'
 import SectionTitle from './SectionTitle'
 
@@ -36,7 +36,7 @@ function About() {
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <motion.div
+          <m.div
             className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 shadow-xl shadow-slate-950/30 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,14 +51,14 @@ function About() {
               Meu objetivo é evoluir constantemente e construir soluções que
               sejam úteis, bem organizadas e agradáveis de usar.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {strengths.map((item, index) => {
               const Icon = item.icon
 
               return (
-                <motion.article
+                <m.article
                   key={item.title}
                   className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-900"
                   initial={{ opacity: 0, y: 20 }}
@@ -76,8 +76,8 @@ function About() {
                   <h3 className="text-lg font-semibold text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-2 leading-6 text-slate-400">{item.text}</p>
-                </motion.article>
+                  <p className="mt-2 leading-6 text-slate-300">{item.text}</p>
+                </m.article>
               )
             })}
           </div>

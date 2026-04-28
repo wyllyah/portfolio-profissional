@@ -1,11 +1,12 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Code2, ExternalLink } from 'lucide-react'
 
 function ProjectCard({ project, index }) {
   const Icon = project.icon
+  const hasCodeUrl = project.codeUrl && project.codeUrl !== '#'
 
   return (
-    <motion.article
+    <m.article
       className="group flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-900/75 shadow-xl shadow-slate-950/20 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-cyan-950/20"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +21,7 @@ function ProjectCard({ project, index }) {
 
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-xl font-bold text-white">{project.name}</h3>
-        <p className="mt-3 flex-1 leading-7 text-slate-400">
+        <p className="mt-3 flex-1 leading-7 text-slate-300">
           {project.description}
         </p>
 
@@ -41,20 +42,35 @@ function ProjectCard({ project, index }) {
             target={project.deployUrl.startsWith('http') ? '_blank' : undefined}
             rel={project.deployUrl.startsWith('http') ? 'noreferrer' : undefined}
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+            aria-label={`Ver projeto ${project.name}`}
           >
             <ExternalLink size={17} aria-hidden="true" />
             Ver projeto
           </a>
-          <a
-            href={project.codeUrl}
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-4 py-3 text-sm font-semibold text-white transition hover:border-cyan-400/70 hover:text-cyan-300"
-          >
-            <Code2 size={17} aria-hidden="true" />
-            Código
-          </a>
+          {hasCodeUrl ? (
+            <a
+              href={project.codeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-4 py-3 text-sm font-semibold text-white transition hover:border-cyan-400/70 hover:text-cyan-300"
+              aria-label={`Acessar código do projeto ${project.name}`}
+            >
+              <Code2 size={17} aria-hidden="true" />
+              Código
+            </a>
+          ) : (
+            <span
+              className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-slate-800 px-4 py-3 text-sm font-semibold text-slate-500"
+              aria-label={`Código do projeto ${project.name} indisponível no momento`}
+              role="text"
+            >
+              <Code2 size={17} aria-hidden="true" />
+              Código
+            </span>
+          )}
         </div>
       </div>
-    </motion.article>
+    </m.article>
   )
 }
 

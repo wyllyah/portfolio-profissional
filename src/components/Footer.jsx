@@ -1,13 +1,14 @@
 import { BriefcaseBusiness, GitBranch, Mail } from 'lucide-react'
+import { profile } from '../data/profile'
 
 const footerLinks = [
-  { label: 'GitHub', href: 'https://github.com/wyllyah', icon: GitBranch },
+  { label: 'GitHub', href: profile.github, icon: GitBranch },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/wyllyah/',
+    href: profile.linkedin,
     icon: BriefcaseBusiness,
   },
-  { label: 'E-mail', href: 'mailto:gustavowyllyah@gmail.com', icon: Mail },
+  { label: 'E-mail', href: `mailto:${profile.email}`, icon: Mail },
 ]
 
 function Footer() {
@@ -34,7 +35,7 @@ function Footer() {
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800 text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-300"
-                aria-label={link.label}
+                aria-label={`Acessar ${link.label} de Gustavo Wyllyah`}
               >
                 <Icon size={18} aria-hidden="true" />
               </a>

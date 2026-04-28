@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { BookOpenCheck } from 'lucide-react'
 import SectionTitle from './SectionTitle'
 
@@ -32,7 +32,7 @@ function Timeline() {
 
         <div className="mx-auto max-w-3xl">
           {timeline.map((item, index) => (
-            <motion.article
+            <m.article
               key={item.title}
               className="relative border-l border-slate-800 pb-10 pl-8 last:pb-0"
               initial={{ opacity: 0, x: -18 }}
@@ -47,11 +47,11 @@ function Timeline() {
                 <h3 className="text-xl font-semibold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 leading-7 text-slate-400">
+                <p className="mt-3 leading-7 text-slate-300">
                   {item.description}
                 </p>
               </div>
-            </motion.article>
+            </m.article>
           ))}
         </div>
       </div>

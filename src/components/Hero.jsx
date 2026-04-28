@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -6,15 +6,20 @@ import {
   Mail,
   Sparkles,
 } from 'lucide-react'
+import { profile } from '../data/profile'
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/wyllyah', icon: GitBranch },
+  { label: 'GitHub de Gustavo Wyllyah', href: profile.github, icon: GitBranch },
   {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/wyllyah/',
+    label: 'LinkedIn de Gustavo Wyllyah',
+    href: profile.linkedin,
     icon: BriefcaseBusiness,
   },
-  { label: 'E-mail', href: 'mailto:gustavowyllyah@gmail.com', icon: Mail },
+  {
+    label: 'Enviar e-mail para Gustavo Wyllyah',
+    href: `mailto:${profile.email}`,
+    icon: Mail,
+  },
 ]
 
 function Hero() {
@@ -25,7 +30,7 @@ function Hero() {
     >
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(15,23,42,0.2),rgba(14,165,233,0.08)_42%,rgba(2,6,23,0.84))]" />
       <div className="section-shell grid items-center gap-12 lg:grid-cols-[1fr_0.9fr]">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -36,10 +41,10 @@ function Hero() {
           </div>
 
           <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Gustavo Wyllyah
+            {profile.name}
           </h1>
           <p className="mt-4 text-2xl font-semibold text-cyan-300">
-            Desenvolvedor Frontend
+            {profile.role}
           </p>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
             Desenvolvedor Frontend focado em criar interfaces modernas,
@@ -80,13 +85,14 @@ function Hero() {
               )
             })}
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="relative"
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.08, ease: 'easeOut' }}
+          role="img"
           aria-label="Resumo visual de habilidades frontend"
         >
           <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-5 shadow-2xl shadow-slate-950/50">
@@ -134,7 +140,7 @@ function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )
