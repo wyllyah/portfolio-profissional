@@ -1,5 +1,5 @@
 import { m } from 'framer-motion'
-import { Code2, ExternalLink } from 'lucide-react'
+import { Code2, ExternalLink, Server } from 'lucide-react'
 
 function ProjectCard({ project, index }) {
   const Icon = project.icon
@@ -20,7 +20,15 @@ function ProjectCard({ project, index }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-xl font-bold text-white">{project.name}</h3>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h3 className="text-xl font-bold text-white">{project.name}</h3>
+          {project.type ? (
+            <span className="rounded-md border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-semibold text-cyan-200">
+              {project.type}
+            </span>
+          ) : null}
+        </div>
+
         <p className="mt-3 flex-1 leading-7 text-slate-300">
           {project.description}
         </p>
@@ -36,23 +44,35 @@ function ProjectCard({ project, index }) {
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-3">
+        <div className="mt-6 flex flex-wrap gap-3">
           <a
             href={project.deployUrl}
             target={project.deployUrl.startsWith('http') ? '_blank' : undefined}
             rel={project.deployUrl.startsWith('http') ? 'noreferrer' : undefined}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+            className="inline-flex min-w-36 flex-1 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
             aria-label={`Ver projeto ${project.name}`}
           >
             <ExternalLink size={17} aria-hidden="true" />
             Ver projeto
           </a>
+          {project.backendUrl ? (
+            <a
+              href={project.backendUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-w-36 flex-1 items-center justify-center gap-2 rounded-lg border border-slate-700 px-4 py-3 text-sm font-semibold text-white transition hover:border-cyan-400/70 hover:text-cyan-300"
+              aria-label={`Acessar backend do projeto ${project.name}`}
+            >
+              <Server size={17} aria-hidden="true" />
+              Backend
+            </a>
+          ) : null}
           {hasCodeUrl ? (
             <a
               href={project.codeUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-700 px-4 py-3 text-sm font-semibold text-white transition hover:border-cyan-400/70 hover:text-cyan-300"
+              className="inline-flex min-w-36 flex-1 items-center justify-center gap-2 rounded-lg border border-slate-700 px-4 py-3 text-sm font-semibold text-white transition hover:border-cyan-400/70 hover:text-cyan-300"
               aria-label={`Acessar código do projeto ${project.name}`}
             >
               <Code2 size={17} aria-hidden="true" />
@@ -60,7 +80,7 @@ function ProjectCard({ project, index }) {
             </a>
           ) : (
             <span
-              className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-slate-800 px-4 py-3 text-sm font-semibold text-slate-500"
+              className="inline-flex min-w-36 flex-1 cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-slate-800 px-4 py-3 text-sm font-semibold text-slate-500"
               aria-label={`Código do projeto ${project.name} indisponível no momento`}
               role="text"
             >

@@ -8,11 +8,11 @@ function Projects() {
       <div className="section-shell">
         <SectionTitle
           eyebrow="Projetos"
-          title="Projetos práticos em frontend"
-          description="Aplicações desenvolvidas para praticar interfaces, consumo de APIs, organização de componentes e integrações modernas."
+          title="Projetos práticos em desenvolvimento web"
+          description="Aplicações desenvolvidas com interfaces modernas, integrações reais, organização de componentes e boas práticas de desenvolvimento."
         />
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-2">
           {projects.map((project, index) => (
             <ProjectCard key={project.name} project={project} index={index} />
           ))}
