@@ -5,19 +5,19 @@ import SectionTitle from './SectionTitle'
 
 function Skills() {
   return (
-    <section id="habilidades" className="py-20 sm:py-24">
+    <section id="habilidades" className="py-24 sm:py-28">
       <div className="section-shell">
         <SectionTitle
           eyebrow="Habilidades"
           title="Tecnologias, ferramentas e fundamentos"
-          description="Principais recursos que uso para transformar ideias em interfaces modernas, responsivas e funcionais."
+          description="Principais recursos que uso para transformar ideias em aplicações web modernas, responsivas e funcionais."
         />
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
           {skills.map((group, index) => (
             <m.article
               key={group.category}
-              className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 transition hover:border-cyan-400/40"
+              className="glass-panel glass-panel-hover rounded-lg p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -30,7 +30,7 @@ function Skills() {
                 {group.items.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-950/70 px-4 py-2 text-sm font-medium text-slate-200"
+                    className="tech-chip inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium"
                   >
                     <BadgeCheck
                       size={16}

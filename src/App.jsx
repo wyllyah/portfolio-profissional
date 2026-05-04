@@ -11,12 +11,12 @@ import Timeline from './components/Timeline'
 function App() {
   return (
     <LazyMotion features={domAnimation}>
-      <div className="min-h-screen bg-slate-950 text-white">
+      <div className="app-shell text-white">
         <a className="skip-link" href="#conteudo">
           Pular para o conteúdo
         </a>
         <Navbar />
-        <main id="conteudo">
+        <main id="conteudo" className="relative z-10">
           <Hero />
           <About />
           <Projects />

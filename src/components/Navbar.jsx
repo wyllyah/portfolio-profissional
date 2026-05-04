@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react'
+import { Menu, TerminalSquare, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navLinks = [
@@ -17,21 +17,23 @@ function Navbar() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-zinc-950/45 shadow-[0_4px_30px_rgba(0,0,0,0.16)] backdrop-blur-xl">
       <nav
-        className="section-shell flex h-16 items-center justify-between"
+        className="section-shell flex h-20 items-center justify-between"
         aria-label="Navegação principal"
       >
         <a
           href="#inicio"
-          className="flex items-center gap-3 font-semibold text-white"
+          className="flex items-center gap-3 font-display font-bold text-white"
           onClick={closeMenu}
           aria-label="Ir para o início"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-400/30 bg-slate-900 text-sm text-cyan-300">
-            GW
+          <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-400/35 bg-cyan-400/5 text-cyan-300 shadow-[0_0_18px_rgba(99,247,255,0.15)]">
+            <TerminalSquare size={20} aria-hidden="true" />
           </span>
-          <span>Gustavo Wyllyah</span>
+          <span className="hidden tracking-tight drop-shadow-[0_0_10px_rgba(99,247,255,0.35)] sm:inline">
+            Gustavo Wyllyah
+          </span>
         </a>
 
         <div className="hidden items-center gap-7 md:flex">
@@ -39,7 +41,7 @@ function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-cyan-300"
+              className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-zinc-400 transition hover:text-cyan-300"
             >
               {link.label}
             </a>
@@ -48,7 +50,7 @@ function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800 text-slate-100 transition hover:border-cyan-400/60 hover:text-cyan-300 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-100 transition hover:border-cyan-400/60 hover:text-cyan-300 md:hidden"
           onClick={() => setIsOpen((current) => !current)}
           aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isOpen}
@@ -61,14 +63,14 @@ function Navbar() {
       {isOpen ? (
         <div
           id="menu-mobile"
-          className="border-t border-slate-800 bg-slate-950 px-4 pb-4 md:hidden"
+          className="border-t border-white/10 bg-zinc-950/95 px-4 pb-4 backdrop-blur-xl md:hidden"
         >
           <div className="mx-auto flex max-w-5xl flex-col gap-1 pt-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-slate-900 hover:text-cyan-300"
+                className="rounded-lg px-4 py-3 font-display text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-white/5 hover:text-cyan-300"
                 onClick={closeMenu}
               >
                 {link.label}

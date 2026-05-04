@@ -3,7 +3,6 @@ import {
   BriefcaseBusiness,
   GitBranch,
   Mail,
-  MessageCircleMore,
 } from 'lucide-react'
 import { profile } from '../data/profile'
 import SectionTitle from './SectionTitle'
@@ -20,7 +19,8 @@ const contactLinks = [
 
 function Contact() {
   return (
-    <section id="contato" className="py-20 sm:py-24">
+    <section id="contato" className="relative py-24 sm:py-28">
+      <div className="absolute left-[-10rem] top-20 h-96 w-96 rounded-full bg-[#7000ff]/10 blur-[100px]" />
       <div className="section-shell">
         <SectionTitle
           eyebrow="Contato"
@@ -30,7 +30,7 @@ function Contact() {
 
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <m.div
-            className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 sm:p-8"
+            className="glass-panel rounded-lg p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -47,7 +47,7 @@ function Contact() {
                     href={link.href}
                     target={link.href.startsWith('http') ? '_blank' : undefined}
                     rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                    className="flex items-center gap-3 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 text-slate-300 transition hover:border-cyan-400/50 hover:text-cyan-300"
+                    className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-slate-300 transition hover:border-cyan-400/50 hover:bg-cyan-400/5 hover:text-cyan-300"
                     aria-label={`Acessar ${link.label} de Gustavo Wyllyah`}
                   >
                     <Icon size={20} aria-hidden="true" />
@@ -59,7 +59,7 @@ function Contact() {
           </m.div>
 
           <m.div
-            className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 sm:p-8"
+            className="glass-panel rounded-lg p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -67,13 +67,10 @@ function Contact() {
           >
             <div className="flex h-full flex-col justify-between gap-8">
               <div>
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
-                  <MessageCircleMore size={28} aria-hidden="true" />
-                </div>
                 <h3 className="text-2xl font-bold text-white">
                   Fale comigo pelo WhatsApp
                 </h3>
-                <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                <p className="mt-3 max-w-2xl leading-7 text-[#b9caca]">
                   Clique no botão abaixo para abrir uma conversa direta comigo.
                   A mensagem inicial já estará preenchida para facilitar o
                   contato.
@@ -84,10 +81,15 @@ function Contact() {
                 href={profile.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-emerald-400 sm:w-auto sm:self-start"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#19bf5d] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_0_20px_rgba(25,191,93,0.18)] transition hover:-translate-y-0.5 hover:bg-[#16ad54] sm:w-auto sm:self-start"
                 aria-label="Enviar mensagem para Gustavo Wyllyah pelo WhatsApp"
               >
-                <MessageCircleMore size={18} aria-hidden="true" />
+                <img
+                  src="/whatsapp-icon.png"
+                  alt=""
+                  className="h-5 w-5 object-contain brightness-0 invert"
+                  aria-hidden="true"
+                />
                 Enviar mensagem no WhatsApp
               </a>
             </div>

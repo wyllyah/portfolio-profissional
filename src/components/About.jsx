@@ -27,27 +27,28 @@ const strengths = [
 
 function About() {
   return (
-    <section id="sobre" className="py-20 sm:py-24">
+    <section id="sobre" className="py-24 sm:py-28">
       <div className="section-shell">
         <SectionTitle
           eyebrow="Sobre"
-          title="Frontend com foco em interfaces úteis"
+          title="Frontend e backend com foco em soluções úteis"
           description="Uma visão direta sobre minha formação, meus estudos e a forma como construo projetos."
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <m.div
-            className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 shadow-xl shadow-slate-950/30 sm:p-8"
+            className="glass-panel rounded-lg border-l-2 border-l-cyan-300/50 p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            <p className="text-lg leading-8 text-slate-300">
-              Sou desenvolvedor frontend em formação, focado na criação de
-              aplicações web modernas, responsivas e funcionais. Tenho estudado
-              e desenvolvido projetos práticos utilizando HTML, CSS, JavaScript,
-              React, Tailwind CSS, consumo de APIs e integração com Supabase.
+            <p className="text-lg leading-8 text-[#b9caca]">
+              Sou desenvolvedor frontend e backend em formação, focado na
+              criação de aplicações web modernas, responsivas e funcionais.
+              Tenho estudado e desenvolvido projetos práticos utilizando HTML,
+              CSS, JavaScript, React, Tailwind CSS, Node.js, consumo de APIs e
+              integração com Supabase.
               Meu objetivo é evoluir constantemente e construir soluções que
               sejam úteis, bem organizadas e agradáveis de usar.
             </p>
@@ -60,7 +61,7 @@ function About() {
               return (
                 <m.article
                   key={item.title}
-                  className="rounded-lg border border-slate-800 bg-slate-900/70 p-6 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-slate-900"
+                  className="glass-panel glass-panel-hover rounded-lg p-6"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
@@ -70,13 +71,13 @@ function About() {
                     ease: 'easeOut',
                   }}
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-cyan-400/20 bg-slate-950 text-cyan-300">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-cyan-400/25 bg-cyan-400/5 text-cyan-300 shadow-[0_0_16px_rgba(99,247,255,0.12)]">
                     <Icon size={22} aria-hidden="true" />
                   </div>
                   <h3 className="text-lg font-semibold text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-2 leading-6 text-slate-300">{item.text}</p>
+                  <p className="mt-2 leading-6 text-[#b9caca]">{item.text}</p>
                 </m.article>
               )
             })}

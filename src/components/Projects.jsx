@@ -4,7 +4,8 @@ import SectionTitle from './SectionTitle'
 
 function Projects() {
   return (
-    <section id="projetos" className="border-y border-slate-900 bg-slate-900/35 py-20 sm:py-24">
+    <section id="projetos" className="relative border-y border-white/5 bg-black/10 py-24 sm:py-28">
+      <div className="absolute right-[-12rem] top-24 h-96 w-96 rounded-full bg-cyan-400/8 blur-[90px]" />
       <div className="section-shell">
         <SectionTitle
           eyebrow="Projetos"
