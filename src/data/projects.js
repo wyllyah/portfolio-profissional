@@ -1,4 +1,4 @@
-import { CarFront, WalletCards } from 'lucide-react'
+import { CarFront, Globe2, WalletCards } from 'lucide-react'
 
 export const projects = [
   {
@@ -45,5 +45,23 @@ export const projects = [
     deployUrl: 'https://wyllyah.github.io/drive-gestor/',
     icon: CarFront,
     accent: 'from-cyan-400/15 via-slate-900 to-blue-500/15',
+  },
+  {
+    name: 'imediata.com',
+    type: 'Frontend',
+    description:
+      'Site institucional desenvolvido para apresentar a empresa, destacar seus canais de contato e organizar informacoes comerciais em uma interface responsiva, objetiva e acessivel.',
+    technologies: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'Responsividade',
+      'SEO',
+      'Performance',
+    ],
+    codeUrl: '#',
+    deployUrl: 'https://www.imediata.com/',
+    icon: Globe2,
+    accent: 'from-emerald-400/15 via-slate-900 to-cyan-400/15',
   },
 ]
