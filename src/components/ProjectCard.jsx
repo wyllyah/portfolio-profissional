@@ -48,8 +48,8 @@ function ProjectCard({ project, index }) {
         <div className="mt-6 flex flex-wrap gap-3">
           <a
             href={project.deployUrl}
-            target={project.deployUrl.startsWith('http') ? '_blank' : undefined}
-            rel={project.deployUrl.startsWith('http') ? 'noreferrer' : undefined}
+            target="_blank"
+            rel="noopener noreferrer"
             className="premium-button inline-flex min-w-36 flex-1 items-center justify-center gap-2 rounded-lg px-4 py-3 font-display text-xs font-bold uppercase tracking-[0.14em] transition"
             aria-label={`Ver projeto ${project.name}`}
           >

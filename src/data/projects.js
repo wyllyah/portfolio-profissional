@@ -60,7 +60,7 @@ export const projects = [
       'Performance',
     ],
     codeUrl: '#',
-    deployUrl: 'https://www.imediata.com/',
+    deployUrl: 'https://imediata-site.vercel.app/',
     icon: Globe2,
     accent: 'from-emerald-400/15 via-slate-900 to-cyan-400/15',
   },
